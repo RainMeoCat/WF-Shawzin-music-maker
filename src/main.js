@@ -1,17 +1,6 @@
 
 
-function copySong() {
-  const input = document.querySelector('#SongString');
-  input.select();
-  if (document.execCommand('copy')) {
-    document.execCommand('copy');
-    console.log('複製成功');
-    $("[data-toggle='SSpopover']").popover("toggle");
-    setTimeout(function () {
-      $("[data-toggle='SSpopover']").popover('hide');
-    }, 2000);
-  }
-}
+
 $(function () { $("[data-toggle='tooltip']").tooltip(); });
 var dialog = {
   "dialog": [
@@ -21,14 +10,12 @@ var dialog = {
     "最強的DPS戰甲就是TITANIA了，不接受反駁◑ω◐",
     "其實雨喵我根本沒有音樂底子，還要問我學鋼琴的弟弟ˊwˋ",
     "我的WARFRAME ID:RainMeoCat 記得標上註解喔!",
-    "最近好忙呀，沒有時間農(´༎ຶ۝༎ຶ)",
+    "最近好忙呀，沒有時間農இдஇ",
     "其實我也是很想彈一首Through The Fire And Flames呀｡ﾟヽ(ﾟ´Д`)ﾉﾟ｡",
     "雨喵家的貓貓叫蛋蛋，是隻美國短毛貓(*´∀`)~♥",
     "其實我的每隻戰甲都有買TennoGEN喔d(`･∀･)b"
   ]
 }
-console.log(Math.floor(Math.random() * 6))
-console.log(Object.keys(dialog.dialog).length)
 L2Dwidget.init({
   dialog: {
     enable: true,
@@ -61,6 +48,18 @@ function create_hell_song() {
     $("[data-toggle='HSSpopover']").popover("toggle");
     setTimeout(function () {
       $("[data-toggle='HSSpopover']").popover('hide');
+    }, 2000);
+  }
+}
+function copySong() {
+  const input = document.querySelector('#SongString');
+  input.select();
+  if (document.execCommand('copy')) {
+    document.execCommand('copy');
+    console.log('複製成功');
+    $("[data-toggle='SSpopover']").popover("toggle");
+    setTimeout(function () {
+      $("[data-toggle='SSpopover']").popover('hide');
     }, 2000);
   }
 }
