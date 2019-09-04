@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <script src="https://kit.fontawesome.com/3a392711dc.js"></script>
+  <script src = "L2D/lib/L2Dwidget.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+     #dimScreen
+         {
+            position: fixed;
+            padding: 0;
+            margin: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999999;
+            display: flex;
+        }</style>
+  <title>WF Shawzin Music Maker</title>
+</head>
+
+<body  style="font-family:Microsoft JhengHei;background-color:#bdbdbd">
+  <div class="col-11 mx-auto">
+  <br><h1><b>WF三線琴編曲小幫手</b></h1><br>
+  <div id="dimScreen" style="display: none">
+    
+    <div class="alert alert-danger col-3 mx-auto  fade show" id="checkalert_F"
+        style="margin: auto; align-items:center;justify-content:center;text-align: center">
+        <strong>注意：匯入歌曲會使目前的編曲消失</strong> 
+        <textarea class="form-control mx-auto" style="resize:none" rows="5" id="comment" placeholder="輸入樂曲字串"></textarea><br>
+        確定要匯入嗎？<br>
+        <button class="btn btn-danger" onclick="importOK()">確定</button><button class="btn btn-primary" onclick="importC()">取消</button>
+    </div>
+</div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-secondary rounded">
+    <a class="navbar-brand disabled" style="font-size:25px"><b>MENU</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item ">
+          <a class="nav-link" href="https://www.youtube.com/c/Rainmeo" target="_blank" data-toggle="tooltip" data-html="true" title="雨喵的Youtube頻道"><b>Youtube</b> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://space.bilibili.com/281342574" target="_blank" data-toggle="tooltip" data-html="true" title="雨喵的Bilibili頻道"><b>Bilibili</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-toggle="tooltip" data-html="true" title="Github原始碼參觀"><b>Github</b></a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+  <br>
+<input class="form-control" id="SongString">
+    <button class="btn btn-dark" onclick="importSong()"><i class="fas fa-file-import fa-lg"></i> 匯入樂曲</button>
+    <button class="btn btn-dark" onclick="copySong()" data-toggle="popover"  data-placement="right"data-html="true" title="複製成功!" data-content="拿去遊戲裡貼上測試!"><i class="far fa-clipboard fa-lg"></i> 複製到剪貼簿</button>
+
+  
+</div>
+
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="src/main.js"></script>
+  <script src="src/import.js"></script>
+  
+</body>
+
+</html>
