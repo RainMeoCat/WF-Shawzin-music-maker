@@ -1,10 +1,131 @@
 var tab=document.getElementById('SongTable')
-window.onload = function () {
-  $(function () { $("[data-toggle='tooltip']").tooltip(); });
-};
 
 
+$(document).ready(function() {
+  
 
+ $(function () { $("[data-toggle='tooltip']").tooltip(); });
+  
+  editor = new SimpleTableCellEditor("SongTable");
+  editor.SetEditableClass("editMe");
+     
+  
+});
+
+var notename={
+  "1": [
+    "Low C",
+    "Low D#",
+    "Low F",
+    "Low G",
+    "Low A#",
+    "Mid C",
+    "D#",
+    "F",
+    "G",
+    "A#",
+    "High C",
+    "High D#"
+  ],
+  "2": [
+    "Low C",
+    "Low D",
+    "Low E",
+    "Low G",
+    "Low A",
+    "Mid C",
+    "D",
+    "E",
+    "G",
+    "A",
+    "High C",
+    "High D"
+  ],
+  "3": [
+    "Low C",
+    "Low C#",
+    "Low D",
+    "Low D#",
+    "Low E",
+    "Low F",
+    "Low F#",
+    "Low G",
+    "Low G#",
+    "Low A",
+    "Low A#",
+    "Low B"
+  ],
+  "4": [
+    "Low C",
+    "Low D#",
+    "Low F",
+    "Low F#",
+    "Low G",
+    "Low A#",
+    "Mid C",
+    "D#",
+    "F",
+    "F#",
+    "G",
+    "A#"
+  ],
+  "5": [
+    "Low C",
+    "Low D",
+    "Low E",
+    "Low F",
+    "Low G",
+    "Low A",
+    "Low B",
+    "Mid C",
+    "D",
+    "E",
+    "F",
+    "G"
+  ],
+  "6": [
+    "Low C",
+    "Low D",
+    "Low D#",
+    "Low F",
+    "Low G",
+    "Low G#",
+    "Low A#",
+    "Mid C",
+    "D",
+    "D#",
+    "F",
+    "G"
+  ],
+  "7": [
+    "Low C",
+    "Low C#",
+    "Low F",
+    "Low F#",
+    "Low A#",
+    "Mid C",
+    "C#",
+    "F",
+    "F#",
+    "A",
+    "High C",
+    "High C#"
+  ],
+  "8": [
+    "Low C",
+    "Low C#",
+    "Low E",
+    "Low F",
+    "Low G",
+    "Low G#",
+    "Low A#",
+    "Mid C",
+    "C#",
+    "E",
+    "F",
+    "G"
+  ]
+}
 var dialog = {
   "dialog": [
     "喵喵喵?",
@@ -21,7 +142,7 @@ var dialog = {
     "其實我很不喜歡去提款機領錢的感覺，明明才領一張，他卻數得好像幾十張一樣",
     "研究顯示，常熬夜上網的人，通常比較容易胖，因為大家都在發宵夜文，一不小心又餓了",
     "愛吃又沒錯，錯的是食物，為什麼這麼容易害人胖",
-    "我最討厭別人浪費我時間了，畢竟我自己浪費都不夠了",
+    "我最討厭別人浪費我時間了，畢竟我自己浪費都不夠了"
 
   ]
 }
@@ -38,6 +159,7 @@ L2Dwidget.init({
   }
 });
 tab.rows[0].cells[0].style.background = "red";
+document.getElementById("FlagJump").value="1"
 window.document.body.onbeforeunload = function () {
   return '';
 }
