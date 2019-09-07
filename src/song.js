@@ -1,5 +1,6 @@
 var SongFlag = 0
 var SongScale = 1
+
 function NewSongQuery() {
 
     for (i = 1; i <= 16; i++) {
@@ -8,12 +9,15 @@ function NewSongQuery() {
             th = document.createElement('th'),
             td = document.createElement('td');
         th.innerHTML = tab.rows[0].cells.length + 1;
+        td.classList.add("editMe")
         td.innerHTML = ''
         tr.appendChild(th);
         tr2.appendChild(td);
+
     }
     // open loop for each row and append cell
 }
+
 function create_hell_song() {
     const data = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     const notes = "BRhJCSKEUkiM";
@@ -37,6 +41,7 @@ function create_hell_song() {
         }, 2000);
     }
 }
+
 function copySong() {
     const input = document.querySelector('#SongString');
     input.select();
@@ -49,6 +54,7 @@ function copySong() {
         }, 2000);
     }
 }
+
 function FlagMove(direction, moveNum) {
 
     if (direction == "-" && SongFlag != 0) {
@@ -56,14 +62,14 @@ function FlagMove(direction, moveNum) {
         SongFlag--;
         document.getElementById("FlagJump").value--
         tab.rows[0].cells[SongFlag].style.background = "red";
-    }
-    else if (direction == "+" && SongFlag != tab.rows[0].cells.length - 1) {
+    } else if (direction == "+" && SongFlag != tab.rows[0].cells.length - 1) {
         tab.rows[0].cells[SongFlag].style.background = "#343a40";
         SongFlag++;
         document.getElementById("FlagJump").value++
         tab.rows[0].cells[SongFlag].style.background = "red";
     }
 }
+
 function FJump(e) {
     let tempF = document.getElementById(e).value
     if (tempF >= tab.rows[0].cells.length - 1) {
@@ -72,8 +78,7 @@ function FJump(e) {
         SongFlag = tableng - 1;
         tab.rows[0].cells[SongFlag].style.background = "red";
         document.getElementById(e).value = tableng
-    }
-    else {
+    } else {
         tab.rows[0].cells[SongFlag].style.background = "#343a40";
         SongFlag = tempF - 1;
         tab.rows[0].cells[SongFlag].style.background = "red";
@@ -83,11 +88,31 @@ function FJump(e) {
 
 }
 
-function ScaleChange(SN,id){
-    if(SN!= SongScale){
-        document.getElementById("ScaleMenu").innerHTML= document.getElementById("SC"+SN).innerHTML
-        document.getElementById("SC"+SongScale).classList.remove("active")
-        document.getElementById("SC"+SN).classList.add("active")
-        SongScale=SN
+function ScaleChange(SN, id) {
+    if (SN != SongScale) {
+        var NT = document.getElementById('NameTable')
+        document.getElementById("ScaleMenu").innerHTML = document.getElementById("SC" + SN).innerHTML
+
+        document.getElementById("SC" + SongScale).classList.remove("active")
+        document.getElementById("SC" + SN).classList.add("active")
+        SongScale = SN
+        $("#NameTable").fadeOut("normal", function () {
+            NT.tHead.children[0].innerHTML = "<th colspan=2>" + document.getElementById("SC" + SN).innerHTML + "</th>"
+            var TBFlag = 2
+
+            for (i = 11; i >= 0; i--) {
+
+                NT.rows[TBFlag].cells[1].innerText = notename[SN][i]
+                TBFlag++
+            }
+        });
+        $("#NameTable").fadeIn("normal");
+    }
+
+
+
 }
+
+function ScaleTable(id) {
+
 }
