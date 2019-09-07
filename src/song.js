@@ -88,5 +88,6 @@ function ScaleChange(SN,id){
         document.getElementById("ScaleMenu").innerHTML= document.getElementById("SC"+SN).innerHTML
         document.getElementById("SC"+SongScale).classList.remove("active")
         document.getElementById("SC"+SN).classList.add("active")
+        SongScale=SN
 }
 }
