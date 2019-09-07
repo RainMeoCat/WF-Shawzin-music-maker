@@ -1,7 +1,9 @@
+var tab=document.getElementById('SongTable')
+window.onload = function () {
+  $(function () { $("[data-toggle='tooltip']").tooltip(); });
+};
 
 
-
-$(function () { $("[data-toggle='tooltip']").tooltip(); });
 
 var dialog = {
   "dialog": [
@@ -18,8 +20,8 @@ var dialog = {
     "這隻貓貓的插件叫live2dwidget，Github有喔~",
     "其實我很不喜歡去提款機領錢的感覺，明明才領一張，他卻數得好像幾十張一樣",
     "研究顯示，常熬夜上網的人，通常比較容易胖，因為大家都在發宵夜文，一不小心又餓了",
-"愛吃又沒錯，錯的是食物，為什麼這麼容易害人胖",
-"我最討厭別人浪費我時間了，畢竟我自己浪費都不夠了",
+    "愛吃又沒錯，錯的是食物，為什麼這麼容易害人胖",
+    "我最討厭別人浪費我時間了，畢竟我自己浪費都不夠了",
 
   ]
 }
@@ -35,38 +37,7 @@ L2Dwidget.init({
     }
   }
 });
-function create_hell_song() {
-  const data = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-  const notes = "BRhJCSKEUkiM";
-  const totalValues = Math.pow(data.length,2);
-  let output = String(Math.floor(Math.random() * 7) + 1);
-  for(let i = 0;i<100;i++) {
-      output += notes[Math.floor(Math.random() * notes.length)];
-      const c1 = data[Math.floor(i / data.length)];
-      const c2 = data[i % data.length];
-      output += c1 + c2;
-  }
-  document.getElementById("HellSongString").value=output
-  const input = document.querySelector('#HellSongString');
-  input.select();
-  if (document.execCommand('copy')) {
-    document.execCommand('copy');
-    console.log('複製成功');
-    $("[data-toggle='HSSpopover']").popover("toggle");
-    setTimeout(function () {
-      $("[data-toggle='HSSpopover']").popover('hide');
-    }, 2000);
-  }
-}
-function copySong() {
-  const input = document.querySelector('#SongString');
-  input.select();
-  if (document.execCommand('copy')) {
-    document.execCommand('copy');
-    console.log('複製成功');
-    $("[data-toggle='SSpopover']").popover("toggle");
-    setTimeout(function () {
-      $("[data-toggle='SSpopover']").popover('hide');
-    }, 2000);
-  }
+tab.rows[0].cells[0].style.background = "red";
+window.document.body.onbeforeunload = function () {
+  return '';
 }
