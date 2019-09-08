@@ -23,13 +23,15 @@ function create_hell_song() {
     const data = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     const notes = "BRhJCSKEUkiM";
     const totalValues = Math.pow(data.length, 2);
-    let output = String(Math.floor(Math.random() * 7) + 1);
+    let TempOutput=Math.floor(Math.random() * 7) + 1
+    let output = TempOutput.toString()
     for (let i = 0; i < 100; i++) {
         output += notes[Math.floor(Math.random() * notes.length)];
         const c1 = data[Math.floor(i / data.length)];
         const c2 = data[i % data.length];
         output += c1 + c2;
     }
+    console.log(output);
     document.getElementById("HellSongString").value = output
     const input = document.querySelector('#HellSongString');
     input.select();
