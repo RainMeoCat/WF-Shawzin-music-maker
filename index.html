@@ -9,7 +9,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+
   <style>
     #dimScreen {
       position: fixed;
@@ -78,17 +78,18 @@
       -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
     }
 
-    
-        @media (max-height: 720px) {
-#Notediv{
-  height:150px
-}    }
-@media (min-height: 720px) {
-#Notediv{
-  height:350px
-}
+
+    @media (max-height: 720px) {
+      #Notediv {
+        height: 150px
+      }
     }
 
+    @media (min-height: 720px) {
+      #Notediv {
+        height: 350px
+      }
+    }
   </style>
   <title>WF Shawzin Music Maker</title>
 </head>
@@ -99,7 +100,7 @@
     <h1><b>WF三線琴編曲小幫手</b></h1><br>
     <div id="dimScreen" style="display: none">
 
-      <div class="alert alert-danger col-3 mx-auto  fade show" id="checkalert_F"
+      <div class="alert alert-danger col-3 mx-auto  fade show" 
         style="margin: auto; align-items:center;justify-content:center;text-align: center">
         <strong>注意：匯入歌曲會使目前的編曲消失</strong>
         <textarea class="form-control mx-auto" style="resize:none" rows="5" id="comment"
@@ -151,28 +152,28 @@
         <a class="dropdown-item" id="SC7" Onclick="ScaleChange(7)">平調子</a>
         <a class="dropdown-item" id="SC8" Onclick="ScaleChange(8)">弗里吉安調式</a>
       </div>
-    </div> <br><br>
+    </div> <b>16格為一秒&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="red">★本網頁不會儲存你的編曲，請養成隨時存檔的好習慣</font></b><br><br>
 
     <div class="table-responsive col-12">
       <table class="table table-sm table-rounded" id="SongTable" style="table-layout:fixed;margin:0px">
         <thead class="thead-dark">
           <tr>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-            <th>5</th>
-            <th>6</th>
-            <th>7</th>
-            <th>8</th>
-            <th>9</th>
-            <th>10</th>
-            <th>11</th>
-            <th>12</th>
-            <th>13</th>
-            <th>14</th>
-            <th>15</th>
-            <th>16</th>
+            <th onclick="CallJump(this.innerHTML)">1</th>
+            <th onclick="CallJump(this.innerHTML)">2</th>
+            <th onclick="CallJump(this.innerHTML)">3</th>
+            <th onclick="CallJump(this.innerHTML)">4</th>
+            <th onclick="CallJump(this.innerHTML)">5</th>
+            <th onclick="CallJump(this.innerHTML)">6</th>
+            <th onclick="CallJump(this.innerHTML)">7</th>
+            <th onclick="CallJump(this.innerHTML)">8</th>
+            <th onclick="CallJump(this.innerHTML)">9</th>
+            <th onclick="CallJump(this.innerHTML)">10</th>
+            <th onclick="CallJump(this.innerHTML)">11</th>
+            <th onclick="CallJump(this.innerHTML)">12</th>
+            <th onclick="CallJump(this.innerHTML)">13</th>
+            <th onclick="CallJump(this.innerHTML)">14</th>
+            <th onclick="CallJump(this.innerHTML)">15</th>
+            <th onclick="CallJump(this.innerHTML)">16</th>
           </tr>
         </thead>
         <tbody id="tbm">
@@ -225,13 +226,27 @@
       aria-controls="collapseExample"><i class="fas fa-wave-square fa-lg"></i>
       字母音名對應表
     </button>
+    <div class="btn-group">
+      <button type="button" class="btn btn-danger dropdown-toggle" id="ScaleMenu" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false"><i class="fas fa-trash-alt fa-lg"></i>
+        編曲淨空
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item disabled" style="color:red;"href="#">此動作無法回復!</a>
+          <div class="dropdown-divider"></div>
+          
+        <a class="dropdown-item "  Onclick="SongClear()">是</a>
+        <a class="dropdown-item" >否</a>
+      </div>
+      
+    </div>
     <br><br>
 
     <div class="row">
       <div class="col">
         <div class="collapse multi-collapse" id="NoteTable">
           <div class="card card-body table-responsive ">
-            <div class="overflow-auto" id="Notediv" >
+            <div class="overflow-auto" id="Notediv">
               <table class="table table-sm  table-rounded table-striped table-hover" style="table-layout:fixed"
                 id="KeyTable">
                 <thead class="thead-dark">
@@ -263,30 +278,30 @@
                     <td onclick="SongInput(this.innerHTML)">J</td>
                     <td onclick="SongInput(this.innerHTML)">K</td>
                     <td onclick="SongInput(this.innerHTML)">M</td>
-                    <td onclick="SongInput(this.innerHTML)"style="background-color:#92ffe4">L</td>
-                    <td onclick="SongInput(this.innerHTML)"style="background-color:#92ffe4">O</td>
-                    <td onclick="SongInput(this.innerHTML)"style="background-color:#92ffe4">N</td>
-                    <td onclick="SongInput(this.innerHTML)"style="background-color:#248aff">P</td>
+                    <td onclick="SongInput(this.innerHTML)" style="background-color:#92ffe4">L</td>
+                    <td onclick="SongInput(this.innerHTML)" style="background-color:#92ffe4">O</td>
+                    <td onclick="SongInput(this.innerHTML)" style="background-color:#92ffe4">N</td>
+                    <td onclick="SongInput(this.innerHTML)" style="background-color:#248aff">P</td>
                   </tr>
                   <tr style="height:30px">
                     <td>地(↓)</td>
                     <td onclick="SongInput(this.innerHTML)">R</td>
                     <td onclick="SongInput(this.innerHTML)">S</td>
                     <td onclick="SongInput(this.innerHTML)">U</td>
-                    <td onclick="SongInput(this.innerHTML)"style="background-color:#92ffe4">T</td>
-                    <td onclick="SongInput(this.innerHTML)"style="background-color:#92ffe4">W</td>
-                    <td onclick="SongInput(this.innerHTML)"style="background-color:#92ffe4">V</td>
-                    <td onclick="SongInput(this.innerHTML)"style="background-color:#248aff">X</td>
+                    <td onclick="SongInput(this.innerHTML)" style="background-color:#92ffe4">T</td>
+                    <td onclick="SongInput(this.innerHTML)" style="background-color:#92ffe4">W</td>
+                    <td onclick="SongInput(this.innerHTML)" style="background-color:#92ffe4">V</td>
+                    <td onclick="SongInput(this.innerHTML)" style="background-color:#248aff">X</td>
                   </tr>
                   <tr style="height:30px">
                     <td>水(→)</td>
                     <td onclick="SongInput(this.innerHTML)">h</td>
                     <td onclick="SongInput(this.innerHTML)">i</td>
                     <td onclick="SongInput(this.innerHTML)">k</td>
-                    <td onclick="SongInput(this.innerHTML)"style="background-color:#92ffe4">j</td>
-                    <td onclick="SongInput(this.innerHTML)"style="background-color:#92ffe4">m</td>
-                    <td onclick="SongInput(this.innerHTML)"style="background-color:#92ffe4">l</td>
-                    <td onclick="SongInput(this.innerHTML)"style="background-color:#248aff">n</td>
+                    <td onclick="SongInput(this.innerHTML)" style="background-color:#92ffe4">j</td>
+                    <td onclick="SongInput(this.innerHTML)" style="background-color:#92ffe4">m</td>
+                    <td onclick="SongInput(this.innerHTML)" style="background-color:#92ffe4">l</td>
+                    <td onclick="SongInput(this.innerHTML)" style="background-color:#248aff">n</td>
                   </tr>
                   <tr style="height:30px">
                     <td>天地(←↓)</td>
@@ -331,8 +346,8 @@
                 </tbody>
               </table>
               <b>#符號為無法彈出之音高，此表不記錄</b>
-              <br><b>*:占兩個音符
-                <br>**:占三個音符</b>
+              <br><b>青色:占兩個音符
+                <br>藍色:占三個音符</b>
             </div>
           </div>
         </div>
@@ -340,7 +355,7 @@
       <div class="col">
         <div class="collapse multi-collapse" id="NoteName">
           <div class="card card-body table-responsive col-lg-4 col-md-5">
-            <div class="overflow-auto" id="Notediv" >
+            <div class="overflow-auto" id="Notediv">
               <table class="table table-sm  table-striped table-hover" style="table-layout:fixed" id="NameTable">
                 <thead class="thead-dark">
                   <tr>
@@ -408,7 +423,11 @@
       </div>
 
     </div>
-
+    <div class="fixed-bottom ">
+      <div class="col-6 mx-auto"style="text-align:center;opacity:0.5">
+        最適解析度：Windows縮放率 100%，1920*1080，Chrome瀏覽器
+      </div>
+    </div>
 
 
 
