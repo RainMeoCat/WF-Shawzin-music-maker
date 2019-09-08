@@ -1,25 +1,44 @@
-var tab=document.getElementById('SongTable')
+var tab = document.getElementById('SongTable')
 
+function isMobile() {
 
-$(document).ready(function() {
-  
+  try { document.createEvent("TouchEvent"); return true; }
 
- $(function () { $("[data-toggle='tooltip']").tooltip(); });
-  
-  editor = new SimpleTableCellEditor("SongTable"); 
+  catch (e) { return false; }
+
+}
+
+$(document).ready(function () {
+  $(function () { $("[data-toggle='tooltip']").tooltip(); });
+  document.getElementById("ScaleMenu").innerHTML="五聲小調"
+  editor = new SimpleTableCellEditor("SongTable");
   editor.SetEditableClass("editMe");
-     
-  
-});
-$('#SongTable').on("cell:edited", function (event) {  
-  if (NoteArray.indexOf(event.newValue)==-1){
+  if(!isMobile()){
+    L2Dwidget.init({
+      dialog: {
+        enable: true,
+        script: {
+          'every idle 20s': '$hitokoto$',
+          'hover .youtube': '我的Youtube頻道，記得訂閱喔!',
+          'hover .bilibili': '我的Bilibili頻道，記得三連加關注~',
+          'hover .github': '喜歡的話可以去我的Github給個星星~',
     
-  event.element.innerHTML=""
+        }
+      }
+    });
   }
-  
-});  
-var NoteArray=["B","C","E","D","G","F","H","J","K","M","L","O","N","P","R","S","U","T","W","V","X","h","i","k","j","m","l","n","z","a","c","x","y","0","p","q","s","5","6","8"]
-var notename={
+
+});
+$('#SongTable').on("cell:edited", function (event) {
+  if (NoteArray.indexOf(event.newValue) == -1) {
+    event.element.innerHTML = ""
+  } else {
+    OutputString()
+  }
+
+});
+var NoteArray = ["B", "C", "E", "D", "G", "F", "H", "J", "K", "M", "L", "O", "N", "P", "R", "S", "U", "T", "W", "V", "X", "h", "i", "k", "j", "m", "l", "n", "z", "a", "c", "x", "y", "0", "p", "q", "s", "5", "6", "8"]
+var notename = {
   "1": [
     "Low C",
     "Low D#",
@@ -153,20 +172,9 @@ var dialog = {
 
   ]
 }
-L2Dwidget.init({
-  dialog: {
-    enable: true,
-    script: {
-      'every idle 10s': '$hitokoto$',
-      'hover .youtube': '我的Youtube頻道，記得訂閱喔!',
-      'hover .bilibili': '我的Bilibili頻道，記得三連加關注~',
-      'hover .github': '喜歡的話可以去我的Github給個星星~',
 
-    }
-  }
-});
 tab.rows[0].cells[0].style.background = "red";
-document.getElementById("FlagJump").value="1"
+document.getElementById("FlagJump").value = "1"
 window.document.body.onbeforeunload = function () {
   return '';
 }
