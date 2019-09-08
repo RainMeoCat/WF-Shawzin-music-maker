@@ -113,6 +113,7 @@ function ScaleChange(SN, id) {
 
 }
 
-function ScaleTable(id) {
+function SongInput(input){
 
+tab.rows[1].cells[SongFlag].innerHTML=input
 }

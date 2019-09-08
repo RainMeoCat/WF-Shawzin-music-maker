@@ -6,12 +6,19 @@ $(document).ready(function() {
 
  $(function () { $("[data-toggle='tooltip']").tooltip(); });
   
-  editor = new SimpleTableCellEditor("SongTable");
+  editor = new SimpleTableCellEditor("SongTable"); 
   editor.SetEditableClass("editMe");
      
   
 });
-
+$('#SongTable').on("cell:edited", function (event) {  
+  if (NoteArray.indexOf(event.newValue)==-1){
+    
+  event.element.innerHTML=""
+  }
+  
+});  
+var NoteArray=["B","C","E","D","G","F","H","J","K","M","L","O","N","P","R","S","U","T","W","V","X","h","i","k","j","m","l","n","z","a","c","x","y","0","p","q","s","5","6","8"]
 var notename={
   "1": [
     "Low C",
