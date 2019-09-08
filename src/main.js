@@ -32,6 +32,7 @@ $(document).ready(function () {
 $('#SongTable').on("cell:edited", function (event) {
   if (NoteArray.indexOf(event.newValue) == -1) {
     event.element.innerHTML = ""
+    OutputString()
   } else {
     OutputString()
   }
