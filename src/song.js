@@ -9,6 +9,7 @@ function NewSongQuery() {
             th = document.createElement('th'),
             td = document.createElement('td');
         th.innerHTML = tab.rows[0].cells.length + 1;
+        th.setAttribute("onclick","CallJump(this.innerHTML)")
         td.classList.add("editMe")
         td.innerHTML = ''
         tr.appendChild(th);
@@ -69,7 +70,10 @@ function FlagMove(direction, moveNum) {
         tab.rows[0].cells[SongFlag].style.background = "red";
     }
 }
-
+function CallJump(num){
+    document.getElementById("FlagJump").value=num
+    FJump("FlagJump")
+}
 function FJump(e) {
     let tempF = document.getElementById(e).value
     if (tempF >= tab.rows[0].cells.length - 1) {
@@ -88,7 +92,7 @@ function FJump(e) {
 
 }
 
-function ScaleChange(SN, id) {
+function ScaleChange(SN) {
     if (SN != SongScale) {
         var NT = document.getElementById('NameTable')
         document.getElementById("ScaleMenu").innerHTML = document.getElementById("SC" + SN).innerHTML
@@ -116,4 +120,27 @@ function ScaleChange(SN, id) {
 function SongInput(input){
 
 tab.rows[1].cells[SongFlag].innerHTML=input
+OutputString()
+}
+
+function OutputString(){
+var String = SongScale
+const data = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+for(i=0;i<tab.rows[0].cells.length;i++){
+    if(tab.rows[1].cells[i].innerHTML!=""){
+    const c1 = data[Math.floor(i / data.length)];
+    const c2 = data[i % data.length];
+    String += tab.rows[1].cells[i].innerHTML+c1+c2
+    }
+
+}
+document.getElementById('SongString').value=String
+console.log(String)
+}
+
+function SongClear(){
+    for(i=0;i<tab.rows[0].cells.length;i++){
+        tab.rows[1].cells[i].innerHTML = ""
+    }
+    document.getElementById('SongString').value=""
 }
