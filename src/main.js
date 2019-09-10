@@ -38,6 +38,10 @@ $('#SongTable').on("cell:edited", function (event) {
   }
 
 });
+$('#SongTable').on("cell:onEditEntered", function (event) {
+CallJump(event.element.cellIndex+1)
+
+});
 var NoteArray = ["B", "C", "E", "D", "G", "F", "H", "J", "K", "M", "L", "O", "N", "P", "R", "S", "U", "T", "W", "V", "X", "h", "i", "k", "j", "m", "l", "n", "z", "a", "c", "x", "y", "0", "p", "q", "s", "5", "6", "8"]
 var notename = {
   "1": [
