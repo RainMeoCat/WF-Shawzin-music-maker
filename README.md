@@ -1,7 +1,5 @@
 # WF-Shawzin-music-maker
 ## 前言
-[![photo-2019-09-09-01-45-07.jpg](https://i.postimg.cc/tJNs44Js/photo-2019-09-09-01-45-07.jpg)](https://postimg.cc/hQhDCg9n)  
-~~沒了~~  
 沒啦，這是一個用來編輯WARFRAME裡三線琴的琴譜的網站~  
 ## 建議解析度
 Windows縮放100%，1920*1080的Chrome瀏覽器  
